@@ -21,10 +21,15 @@ Route::get('posts/{post}', function ($slug) {
     $path = __DIR__."/../resources/posts/{$slug}.html";
 
     if(!file_exists($path)) {
-        dd('File Does not exist');
+        return redirect('/');
     }
-    $post = file_get_contents($path);
+
+    $post = cache()->remember("posts.{$slug}", now()->addMinutes(20), function () use ($path) {
+        var_dump('file_get_contents');
+        return file_get_contents($path);
+    });
+    
     return view('post', [
         'post' => $post
     ]);
-})->where('post','[A-z_\-]+'); // Alloed only dash and underscore in route
+})->where('post','[A-z_\-]+'); // Allowed only dash and underscore in route
