@@ -17,8 +17,14 @@ Route::get('/', function () {
     return view('posts');
 });
 
-Route::get('post', function () {
+Route::get('posts/{post}', function ($slug) {
+    $path = __DIR__."/../resources/posts/{$slug}.html";
+
+    if(!file_exists($path)) {
+        dd('File Does not exist');
+    }
+    $post = file_get_contents($path);
     return view('post', [
-        'post' => file_get_contents(__DIR__.'/../resources/posts/my-first-post.html')
+        'post' => $post
     ]);
 });

@@ -9,7 +9,7 @@
 
 <body>
     <article>
-        <h1><a href="/post">Post 1</a></h1>
+        <h1><a href="/posts/my-first-post">Post 1</a></h1>
         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
             industry's
             standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
@@ -23,7 +23,7 @@
             of Lorem Ipsum.</p>
     </article>
     <article>
-        <h1><a href="/post">Post 2</a></h1>
+        <h1><a href="/posts/my-second-post">Post 2</a></h1>
         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
             industry's
             standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
@@ -37,7 +37,7 @@
             of Lorem Ipsum.</p>
     </article>
     <article>
-        <h1><a href="/post">Post 3</a></h1>
+        <h1><a href="/posts/my-third-post">Post 3</a></h1>
         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
             industry's
             standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
