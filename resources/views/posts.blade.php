@@ -14,7 +14,7 @@
             <a href="/posts/{{ $post->slug }}">
                 <h1>{{ $post->title }}</h1>
             </a>
-            <div>{!! $post->body !!}</div>
+            <div>{{ $post->excerpt }}</div>
         </article>
     @endforeach
 
