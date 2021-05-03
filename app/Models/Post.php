@@ -22,12 +22,6 @@ class Post
         $this->body = $body;
         $this->slug = $slug;
     }
-    public static function find($slug)
-    {
-        $posts = static::findAll();
-
-        return $posts->firstWhere('slug', $slug);
-    }
     public static function findAll()
     {
         return cache()->rememberForever('posts.findAll', function () {
@@ -45,5 +39,19 @@ class Post
                     );
                 })->sortBy('date');
         });
+    }
+    public static function find($slug)
+    {
+        return static::findAll()->firstWhere('slug', $slug);
+    }
+    public function findOrFail($slug)
+    {
+        $post = static::find($slug);
+
+        if (!$slug) {
+            throw new ModelNotFoundException();
+        }
+
+        return $post;
     }
 }
