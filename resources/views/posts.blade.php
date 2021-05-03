@@ -1,23 +1,16 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layout')
 
-<head>
-    <title>My Blogs</title>
-    <link rel="stylesheet" href="/app.css">
-    {{-- <script src="/app.js"></script> --}}
-</head>
+@section('banner')
+    <h1>My Blogs</h1>
+@endsection
 
-<body>
-
+@section('content')
     @foreach ($posts as $post)
-        <article>
+        <article class="{{ $loop->even ? 'even-row' : 'odd-row' }}">
             <a href="/posts/{{ $post->slug }}">
                 <h1>{{ $post->title }}</h1>
             </a>
             <div>{{ $post->excerpt }}</div>
         </article>
     @endforeach
-
-</body>
-
-</html>
+@endsection

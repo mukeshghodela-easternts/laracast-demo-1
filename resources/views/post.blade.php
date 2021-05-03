@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layout')
 
-<head>
-    <title>My Blogs</title>
-    <link rel="stylesheet" href="/app.css">
-    {{-- <script src="/app.js"></script> --}}
-</head>
+@section('banner')
+    <h1>My Blog</h1>
+@endsection
 
-<body>
+@section('content')
     <article>
         <h1>{{ $post->title }}</h1>
         <div>
@@ -15,6 +12,4 @@
         </div>
     </article>
     <a href="/">Go Back</a>
-</body>
-
-</html>
+@endsection
