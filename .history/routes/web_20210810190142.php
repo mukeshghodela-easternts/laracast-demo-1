@@ -16,12 +16,14 @@ use App\Models\Post;
 
 Route::get('/', function () {
     return view('posts', [
-        'posts' => Post::all()
+        'posts' => Post::findAll()
     ]);
 });
 
-Route::get('posts/{post}', function ($id) {
+Route::get('posts/{post}', function ($slug) {
+    $post = Post::find($slug);
+
     return view('post', [
-        'post' => Post::find($id)
+        'post' => $post
     ]);
-});
+})->where('post', '[A-z_\-]+'); // Allowed only dash and underscore in route

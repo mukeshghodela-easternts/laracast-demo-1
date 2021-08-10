@@ -21,7 +21,9 @@ Route::get('/', function () {
 });
 
 Route::get('posts/{post}', function ($id) {
+    $post = Post::find($id);
+
     return view('post', [
-        'post' => Post::find($id)
+        'post' => $post
     ]);
-});
+})->where('post', '[A-z_\-]+'); // Allowed only dash and underscore in route

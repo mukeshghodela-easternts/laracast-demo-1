@@ -24,4 +24,4 @@ Route::get('posts/{post}', function ($id) {
     return view('post', [
         'post' => Post::find($id)
     ]);
-});
+})
