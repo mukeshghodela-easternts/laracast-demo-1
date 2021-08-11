@@ -20,8 +20,8 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('posts/{post}', function (Post $post) {
+Route::get('posts/{post}', function (Post $id) {
     return view('post', [
-        'post' => $post
+        'post' => Post::find($id)
     ]);
 });
