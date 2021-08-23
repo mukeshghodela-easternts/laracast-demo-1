@@ -30,6 +30,9 @@
             <div class="text-sm mt-4 space-y-4  text-green-500">
                 {!! $post->excerpt !!}
             </div>
+            <div class="text-sm mt-4 space-y-4  text-green-500">
+                {!! $post->body !!}
+            </div>
 
             <footer class="flex justify-between items-center mt-8">
                 <div class="flex items-center text-sm">
