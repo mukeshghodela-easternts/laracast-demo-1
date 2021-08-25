@@ -23,11 +23,10 @@ class Post extends Model
         $query->when(
             $filters['category'] ?? false,
             fn ($query, $category) => $query
-                ->whereExists(
+                ->whereHas(
+                    'category',
                     fn ($query) =>
-                    $query->from('categories')
-                        ->whereColumn('categories.id', 'posts.category_id')
-                        ->where('categories.slug', $category)
+                    $query->where('slug', $category)
                 )
         );
     }
