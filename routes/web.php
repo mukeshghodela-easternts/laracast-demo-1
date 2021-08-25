@@ -29,9 +29,9 @@ Route::get('posts/{post}', [PostController::class, 'show']);
 //     ]);
 // })->name('category');
 
-Route::get('authors/{author:username}', function (User $author) { //Find post by author
-    return view('posts', [
-        'posts' => $author->posts,
-        'categories' => Category::all()
-    ]);
-});
+// Route::get('authors/{author:username}', function (User $author) { //Find post by author
+//     return view('posts.index', [
+//         'posts' => $author->posts,
+//         'categories' => Category::all()
+//     ]);
+// });
