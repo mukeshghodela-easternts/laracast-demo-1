@@ -1,7 +1,7 @@
 @props(['post'])
 
 <article
-    class="transition-colors duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl">
+    class="transition-colors duration-300 hover:bg-gray-700 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl">
     <div class="py-6 px-5 lg:flex">
         <div class="flex-1 lg:mr-8">
             {{-- TODO --}}
@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="mt-4">
-                    <h1 class="text-3xl text-green-500 uppercase">
+                    <h1 class="text-3xl text-green-100 uppercase">
                         <a href="/posts/{{ $post->slug }}">
                             {{ $post->title }}
                         </a>
@@ -29,14 +29,17 @@
                 </div>
             </header>
 
-            <div class="text-sm mt-2 space-y-4  text-green-500">
+            <div class="text-sm mt-2 space-y-4  text-green-100">
+                {!! $post->body !!}
+            </div>
+            <div class="text-sm mt-2 space-y-4  text-green-100">
                 {!! $post->excerpt !!}
             </div>
 
             <footer class="flex justify-between items-center mt-8">
                 <div class="flex items-center text-sm">
                     <img src="/images/lary-avatar.svg" alt="Lary avatar">
-                    <div class="ml-3  text-green-500">
+                    <div class="ml-3  text-green-100">
                         <h5 class="font-bold">
                             <a href="?author={{$post->author->username}}">{{ $post->author->name }}</a>
                         </h5>
@@ -45,7 +48,7 @@
 
                 <div class="hidden lg:block">
                     <a href="/posts/{{ $post->slug }}"
-                       class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8"
+                       class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-700 rounded-full py-2 px-8"
                     >Read More</a>
                 </div>
             </footer>

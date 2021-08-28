@@ -21,13 +21,13 @@
     <section class="px-6 py-8">
         <nav class="md:flex md:justify-between md:items-center">
             <div>
-                <a class="text-green-500 text-1xl font-bold uppercase" href="/">
+                <a class="text-green-100 text-1xl font-bold uppercase" href="/">
                     Blogs
                 </a>
             </div>
 
             <div class="mt-8 md:mt-0">
-                <a href="/" class="text-green-500 text-1xl font-bold uppercase">Home Page</a>
+                <a href="/" class="text-green-100 text-1xl font-bold uppercase">Home Page</a>
             </div>
         </nav>
 

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\Models\User;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +19,14 @@ use App\Http\Controllers\PostController;
 */
 
 Route::get('/', [PostController::class, 'index'])->name('home');
+Route::get('posts/{post}', [PostController::class, 'show'])->name('post');
+Route::get('register', [RegisterController::class, 'create'])->name('register');
 
-Route::get('posts/{post}', [PostController::class, 'show']);
+
+
+
+
+
 
 // Route::get('categories/{category:slug}', function (Category $category) { //Find post by slug
 //     return view('posts', [
