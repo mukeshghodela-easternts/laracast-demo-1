@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -24,7 +25,11 @@ class RegisterController extends Controller
         $attributes['password'] = bcrypt($attributes['password']);
 
         // dd($attributes);
-        User::create($attributes);
-        return redirect('/');
+
+        $user = User::create($attributes);
+
+        auth()->login($user);
+
+        return redirect('/')->with('success', 'User created successfully.');
     }
 }
