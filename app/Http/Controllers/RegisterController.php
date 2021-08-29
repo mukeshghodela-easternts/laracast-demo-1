@@ -14,17 +14,17 @@ class RegisterController extends Controller
 
     public function store()
     {
-        $user_info = request()->validate([
+        $attributes = request()->validate([
             'name' => 'required|max:255',
-            'username' => 'required|max:255|min:3',
-            'email' => 'required|email|max:255',
+            'username' => 'required|min:3|max:255|unique:users,username',
+            'email' => 'required|email|max:255|unique:users,email',
             'password' => 'required|min:7|max:32',
         ]);
 
-        $user_info['password'] = bcrypt($user_info['password']);
+        $attributes['password'] = bcrypt($attributes['password']);
 
-        // dd($user_info);
-        User::create($user_info);
+        // dd($attributes);
+        User::create($attributes);
         return redirect('/');
     }
 }
