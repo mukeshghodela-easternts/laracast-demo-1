@@ -12,9 +12,11 @@
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
+
     .clamp.one-line {
         -webkit-line-clamp: 1;
     }
+
 </style>
 
 <body style="font-family: Open Sans, sans-serif;background-color: #000000c4;">
@@ -36,6 +38,7 @@
                     </form>
                 @else
                     <a href="/register" class="text-green-100 text-1xl font-bold uppercase">Register</a>
+                    <a href="/login" class=" ml-4 text-green-100 text-1xl font-bold uppercase">Login</a>
                 @endauth
 
                 <a href="#" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
@@ -52,5 +55,5 @@
 
         </footer>
     </section>
-    <x-flash/>
+    <x-flash />
 </body>
