@@ -21,17 +21,17 @@ class SessionsController extends Controller
             'password' => 'required'
         ]);
 
-        if (auth()->attempt($attributes)) {
-            session()->regenerate();
-
-            return redirect('/')->with('success', 'Welcome Back!');
+        if (!auth()->attempt($attributes)) {
+            throw ValidationException::withMessages([
+                'email' => 'Invalid Credentials'
+            ]);
         }
 
         // return back()->withErrors(['email' => 'Invalid Credentials']);
 
-        throw ValidationException::withMessages([
-            'email' => 'Invalid Credentials'
-        ]);
+        session()->regenerate();
+
+        return redirect('/')->with('success', 'Welcome Back!');
     }
 
     public function userLogout()

@@ -9,8 +9,8 @@ class Post extends Model
 {
     use HasFactory;
 
-    // protected $fillable = ['title', 'excerpt', 'body'];
-    protected $guarded = ['id'];
+    // // protected $fillable = ['title', 'excerpt', 'body'];
+    // protected $guarded = ['id'];
 
     protected $with = ['category', 'author']; //Defaul Relationship
 
@@ -61,5 +61,10 @@ class Post extends Model
     public function author()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }
