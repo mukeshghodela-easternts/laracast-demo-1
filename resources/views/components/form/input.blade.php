@@ -3,7 +3,7 @@
 <x-form.field>
     <x-form.label name="{{ $name }}" />
     @php
-        $classes = 'border border-gray-400 p-2 w-full';
+        $classes = 'border border-gray-200 p-2 w-full rounded';
 
         if ($type == 'file') {
             $classes .= ' text-green-100';
@@ -13,7 +13,7 @@
 
     @endphp
     <input class="{{ $classes }}" type="{{ $type }}" name="{{ $name }}" id="{{ $name }}"
-        value="{{ old($name) }}" required>
+        value="{{ old($name) }}" {{ $attributes }} required>
 
     <x-form.error name="{{ $name }}" />
 </x-form.field>
