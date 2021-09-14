@@ -12,9 +12,9 @@
             <x-form.field>
                 <x-form.label name="category" />
 
-                <select name="category_id" id="category_id">
-                    @foreach (\App\Models\Category::all() as $category)                                                                                                                                                                                              
-                        <option value="{{ $category->id }}"
+                <select name="category_id" id="category_id" class="text-green-700">
+                    @foreach (\App\Models\Category::all() as $category)
+                        <option class="text-green-700" value="{{ $category->id }}"
                             {{ old('category_id') == $category->id ? 'selected' : '' }}>
                             {{ ucwords($category->name) }}</option>
                     @endforeach

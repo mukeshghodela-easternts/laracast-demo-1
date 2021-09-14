@@ -13,7 +13,7 @@
 
     @endphp
     <input class="{{ $classes }}" type="{{ $type }}" name="{{ $name }}" id="{{ $name }}"
-        value="{{ old($name) }}" {{ $attributes }} required>
+        value="{{ old($name) }}" {{ $attributes(['value' => old($name)]) }} required>
 
     <x-form.error name="{{ $name }}" />
 </x-form.field>
