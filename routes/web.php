@@ -22,12 +22,7 @@ use App\Http\Controllers\SessionsController;
 Route::get('/', [PostController::class, 'index'])->name('home');
 Route::get('posts/{post}', [PostController::class, 'show'])->name('post');
 
-Route::post('admin/posts', [AdminPostController::class, 'store'])->middleware('admin');
-Route::get('admin/posts/create', [AdminPostController::class, 'create'])->middleware('admin');
-Route::get('admin/posts', [AdminPostController::class, 'index'])->middleware('admin');
-Route::get('admin/posts/{post}/edit', [AdminPostController::class, 'edit'])->middleware('admin');
-Route::patch('admin/posts/{post}', [AdminPostController::class, 'update'])->middleware('admin');
-Route::delete('admin/posts/{post}', [AdminPostController::class, 'destroy'])->middleware('admin');
+
 
 Route::post('posts/{post:slug}/comments', [PostCommentsController::class, 'store']);
 
@@ -42,7 +37,12 @@ Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
 Route::post('logout', [SessionsController::class, 'userLogout'])->middleware('auth');
 
 
-
+Route::post('admin/posts', [AdminPostController::class, 'store'])->middleware('admin');
+Route::get('admin/posts/create', [AdminPostController::class, 'create'])->middleware('admin');
+Route::get('admin/posts', [AdminPostController::class, 'index'])->middleware('admin');
+Route::patch('admin/posts/{post}', [AdminPostController::class, 'update'])->middleware('admin');
+Route::delete('admin/posts/{post}', [AdminPostController::class, 'destroy'])->middleware('admin');
+Route::get('admin/posts/{post}/edit', [AdminPostController::class, 'edit'])->middleware('admin');
 
 
 

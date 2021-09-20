@@ -1,19 +1,10 @@
-@props(['name', 'type' => 'text'])
+@props(['name'])
 
 <x-form.field>
     <x-form.label name="{{ $name }}" />
-    @php
-        $classes = 'border border-gray-200 p-2 w-full rounded';
 
-        if ($type == 'file') {
-            $classes .= ' text-green-100';
-        } else {
-            $classes .= ' text-green-700';
-        }
-
-    @endphp
-    <input class="{{ $classes }}" type="{{ $type }}" name="{{ $name }}" id="{{ $name }}"
-        value="{{ old($name) }}" {{ $attributes(['value' => old($name)]) }} required>
+    <input class="border border-gray-200 p-2 w-full rounded text-green-700" name="{{ $name }}"
+        id="{{ $name }}" {{ $attributes(['value' => old($name)]) }}>
 
     <x-form.error name="{{ $name }}" />
 </x-form.field>
